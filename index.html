@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ernesto M. Reyes • Portfolio</title>
+    <meta name="description" content="Portfolio of Ernesto Muñoz – Full-stack web projects, UI/UX, and IT Ops." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="brand">ERNESTO M. REYES</div>
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="bg-word">WELCOME</div>
+        <h1>A Newcomer in Web Development<br>with a Strong IT Foundation</h1>
+        <p>I’m stepping into web development with fresh energy and curiosity. My years in IT have given me technical discipline,
+            problem-solving skills, and a knack for understanding systems — now I’m applying that same drive to building clean,
+            interactive, and functional web projects.</p>
+
+        <div class="cta-row">
+            <a class="btn primary" href="#projects">Explore Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="bg-word">PROJECTS</div>
+        <h2>Featured Work</h2>
+        <div class="grid">
+            <article class="card reveal">
+                <div class="thumb"><img src="./assets/previews/campito_dashboard.jpg" alt="Campito preview"></div>
+                <h3>Campito Camping Fest</h3>
+                <p>Full-stack app with Node.js, Express, SQLite. Features authentication, voting, admin dashboard, and
+                    CI/CD.</p>
+                <a class="btn primary" href="#">View Live</a>
+            </article>
+            <article class="card reveal">
+                <div class="thumb"><img src="./assets/previews/miata_hero.jpg" alt="Miata Landing preview"></div>
+                <h3>Mazda Miata Landing Page</h3>
+                <p>Front-end experience built with HTML, CSS, JS. Includes scroll animations and 3D turntable frames.
+                </p>
+                <a class="btn primary" href="#">View Live</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="bg-word">ABOUT</div>
+        <h2>Featured Work</h2>
+        <p>These projects reflect my first steps into web development — combining what I’ve learned so far with my background in
+            IT. Each one is a chance to grow, experiment, and build something that works in the real world.</p>
+
+    </section>
+
+    <section id="contact">
+        <div class="bg-word">CONTACT</div>
+        <h2>Get in Touch</h2>
+        <p>I’m looking for opportunities to grow as a developer — junior front-end, full-stack, or collaborative projects. If
+            you’re looking for someone motivated, curious, and ready to put in the work, let’s connect.</p>
+
+        <div class="cta-row">
+            <a class="btn primary" href="mailto:your.email@example.com">Email Me</a>
+            <a class="btn secondary" href="https://github.com/alucard1991" target="_blank">GitHub</a>
+            <a class="btn secondary" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        © <span id="yr"></span> Ernesto M. Reyes • Portfolio
+    </footer>
+
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.card').forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>
