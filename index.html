@@ -9,7 +9,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <meta property="og:title" content="Ernesto M. Reyes — Portfolio">
+    <meta property="og:description"
+        content="Newcomer web developer with an IT background. Clean builds, bold visuals, real projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alucard1991.github.io/portfolio/">
+    <meta property="og:image" content="https://alucard1991.github.io/portfolio/images/og-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
 </head>
+
+<div id="progress"></div>
+
 
 <body>
     <header>
@@ -82,11 +94,25 @@
     </footer>
 
     <script>
+        const bar = document.getElementById('progress');
+            addEventListener('scroll', () => {
+                const p = (scrollY) / (document.body.scrollHeight - innerHeight);
+                bar.style.width = (p * 100) + '%';
+            });        
+
         document.getElementById('yr').textContent = new Date().getFullYear();
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
         }, { threshold: 0.2 });
         document.querySelectorAll('.card').forEach(el => io.observe(el));
+
+        document.querySelectorAll('.card').forEach(c => {
+                c.addEventListener('mousemove', e => {
+                    const r = c.getBoundingClientRect();
+                    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                });
+            });
     </script>
 </body>
 
