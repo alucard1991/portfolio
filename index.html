@@ -113,6 +113,28 @@
                     c.style.setProperty('--my', (e.clientY - r.top) + 'px');
                 });
             });
+
+         const dot = document.createElement('div');
+            const ring = document.createElement('div');
+            dot.classList.add('cursor-dot');
+            ring.classList.add('cursor-ring');
+            document.body.append(dot, ring);
+
+            let x = 0, y = 0;
+            let ringX = 0, ringY = 0;
+
+            document.addEventListener('mousemove', e => {
+                x = e.clientX; y = e.clientY;
+                dot.style.transform = `translate(${x}px, ${y}px)`;
+            });
+
+            function animate() {
+                ringX += (x - ringX) * 0.15;
+                ringY += (y - ringY) * 0.15;
+                ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+                requestAnimationFrame(animate);
+            }
+            animate();
     </script>
 </body>
 
