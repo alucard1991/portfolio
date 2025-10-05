@@ -33,6 +33,10 @@ a:hover::after {
     width: 100%
 }
 
+a.btn.primary:hover~.cursor-ring {
+    border-color: #fff;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -55,6 +59,15 @@ body {
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
     
+}
+
+body {
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 

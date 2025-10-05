@@ -94,6 +94,14 @@
     </footer>
 
     <script>
+        window.addEventListener('scroll', () => {
+                document.querySelectorAll('.bg-word').forEach(el => {
+                    el.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.05}px)) scale(1.05)`;
+                });
+            });
+
+        window.addEventListener('load', () => document.body.classList.add('loaded'));
+
         const bar = document.getElementById('progress');
             addEventListener('scroll', () => {
                 const p = (scrollY) / (document.body.scrollHeight - innerHeight);
@@ -135,6 +143,7 @@
                 requestAnimationFrame(animate);
             }
             animate();
+
     </script>
 </body>
 
